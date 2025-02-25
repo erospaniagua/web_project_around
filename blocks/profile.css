@@ -76,7 +76,8 @@
 .main__button_add {
   width: 150px;
   height: 50px;
-  align-self:self-end;
+  align-self:center;
+  justify-self: self-end;
 }
 
 .main__button_img {
