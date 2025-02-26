@@ -12,6 +12,14 @@
     <title>Al rededor de LATAM</title>
 </head>
 <body>
+  <div class="popout">
+    <h2>Editar Perfil</h2>
+    <button onclick="cerrarPopout()">&times;</button>
+    <input type="text" placeholder="Nombre" id="nombre">
+    <textarea placeholder="Acerca de mí" id="acercaDeMi"></textarea>
+    <button onclick="guardarDatos()">Guardar</button>
+</div>
+
   <div class="page">
     <header class="header">
      <img src="./images/Vector.png" alt="" class="header__vector">
@@ -82,6 +90,6 @@
       &#169 2025 Around latinoamerica
     </footer>
   </div>
-
+  <script src="/scripts/popout.js"></script>
 </body>
 </html>
