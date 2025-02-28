@@ -1,5 +1,5 @@
 //botton editar perfil
-let popcontainer = document.querySelector(".popup__opened");
+let popcontainer = document.querySelector(".popup_opened");
 
 let container= document.querySelector(".main");
 
@@ -8,7 +8,7 @@ console.log(editprofile);
 
 
 editprofile.addEventListener('click', ()=>{
-  popcontainer.classList.remove('popup__opened')
+  popcontainer.classList.remove('popup_opened')
 });
 
 //boton cerrar pupup
@@ -18,7 +18,7 @@ console.log(closepopup);
 
 closepopup.addEventListener('click', ()=>{
   event.preventDefault();
-  popcontainer.classList.add('popup__opened')
+  popcontainer.classList.add('popup_opened')
 });
 
 //poner el contenido del perfil en los campos del popup por defecto
@@ -41,7 +41,7 @@ popupsave.addEventListener('click', ()=>{
   event.preventDefault();
   profilename.textContent = popupname.value || profilename.textContent;
   profilejob.textContent = popupjob.value || profilejob.textContent;
-  popcontainer.classList.add('popup__opened');
+  popcontainer.classList.add('popup_opened');
 
 });
 
