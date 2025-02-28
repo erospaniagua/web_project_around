@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Pagina web de los lugares donde lugares donde he vivido"
+    />
     <meta name="author" content="Eros Paniagua" />
     <meta
       name="keywords"
@@ -12,27 +16,24 @@
     <title>Al rededor de LATAM</title>
 </head>
 <body>
-  <div class="popup">
+  <div class="popup popup__opened">
     <form class="popup__container">
     <h2 class="popup__title popup__margin" >Editar Perfil</h2>
-    <button onclick="cerrarPopout()"  class="popup__close"><img src="./images/Close Icon.png" alt=""></button>
+    <button  class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
     <input type="text" placeholder="Nombre" id="nombre" class="popup__nombre popup__margin">
     <input placeholder="Acerca de mí" id="acercaDeMi" class="popup__about popup__margin"></input>
-    <button onclick="guardarDatos()" class="popup__guardar popup__margin">Guardar</button>
+    <button class="popup__guardar popup__margin">Guardar</button>
 </form>
 </div>
 
   <div class="page">
     <header class="header">
-     <img src="./images/Vector.png" alt="" class="header__vector">
+     <img src="./images/Vector.png" alt="Around the us" class="header__vector">
     </header>
     <main class="main">
       <div class="main__profile">
         <div class="main__content-image">
-          <img src="/images/image.jpg" alt="" class="main__profile-image">
-          <button type="button" class="main__button main__button_img">
-            &#x1F58C;
-          </button>
+          <img src="/images/image.jpg" alt="profile picture" class="main__profile-image">
         </div>
         <div class="main__content-paragraph">
           <h2 class="main__paragraph main__paragraph_name">Eros Paniagua</h2>
@@ -45,45 +46,45 @@
       </div>
       <section class="gallery">
         <div class="gallery__card">
-          <img src="./images/cdmx.jpg" alt="" class="gallery__card-image">
+          <img src="./images/cdmx.jpg" alt="ciudad de mexico" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Ciudad de Mexico </p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
         <div class="gallery__card">
-          <img src="./images/playa del carmen.png" alt="" class="gallery__card-image">
+          <img src="./images/playa del carmen.png" alt="playa del carment" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Playa del Carmen Quintana Roo</p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
         <div class="gallery__card">
-          <img src="./images/el-arco-de-cabo-san-lucas.jpg" alt="" class="gallery__card-image">
+          <img src="./images/el-arco-de-cabo-san-lucas.jpg" alt="cabo san lucas" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Cabo san Lucas</p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
         <div class="gallery__card">
-          <img src="./images/mazatlan.jpg" alt="" class="gallery__card-image">
+          <img src="./images/mazatlan.jpg" alt="mazatlan" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Mazatlan Sinaloa</p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
         <div class="gallery__card">
-          <img src="./images/Oaxaca-Playas-Huatulco-Front-01.jpg" alt="" class="gallery__card-image">
+          <img src="./images/Oaxaca-Playas-Huatulco-Front-01.jpg" alt="oaxaca" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Oaxaca</p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
         <div class="gallery__card">
-          <img src="./images/GettyImages-1069767636.jpg" alt="" class="gallery__card-image">
+          <img src="./images/GettyImages-1069767636.jpg" alt="Colombia" class="gallery__card-image">
           <div class="gallery__card-text">
             <p class="gallery__card-name">Colombia</p>
-            <img src="./images/Group.png" alt="" class="gallery__card-like">
+            <img src="./images/Group.png" alt="heart" class="gallery__card-like">
           </div>
         </div>
       </section>
@@ -92,6 +93,6 @@
       &#169 2025 Around latinoamerica
     </footer>
   </div>
-  <script src="/scripts/popup.js"></script>
+  <script src="/scripts/popout.js"></script>
 </body>
 </html>
