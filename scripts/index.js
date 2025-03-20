@@ -1,3 +1,5 @@
+//imports
+import { initialCards } from "./cards.js";
 //botton editar perfil
 const popcontainer = document.querySelector(".popup_opened");
 
@@ -24,6 +26,7 @@ closepopup.addEventListener('click', ()=>{
 //poner el contenido del perfil en los campos del popup por defecto
 
 const profilename = container.querySelector('.main__paragraph_name');
+
 const profilejob = container.querySelector('.main__paragraph_job');
 
 const popupname = popcontainer.querySelector('.popup__nombre');
@@ -44,4 +47,25 @@ popupsave.addEventListener('click', ()=>{
   popcontainer.classList.add('popup_opened');
 
 });
+
+
+//toma un array y crea las targetas usando un template
+
+
+initialCards.forEach(element => {
+const cardsContainer = document.querySelector('.gallery');
+const cardTemplate = document.querySelector('#card').content;
+const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
+
+card.querySelector('.gallery__card-image').src = element.link;
+card.querySelector('.gallery__card-name').textContent = element.name;
+
+cardsContainer.append(card);
+console.log(card);
+
+
+
+});
+
+
 
