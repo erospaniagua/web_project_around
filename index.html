@@ -16,13 +16,23 @@
     <title>Al rededor de LATAM</title>
 </head>
 <body>
-  <div class="popup popup_opened">
+  <div id="popupProfile" class="popup popup_opened">
     <form class="popup__container">
     <h2 class="popup__title popup__margin" >Editar Perfil</h2>
     <button  class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
     <input type="text" placeholder="Nombre" id="nombre" class="popup__nombre popup__margin">
     <input placeholder="Acerca de mí" id="acercaDeMi" class="popup__about popup__margin">
-    <button class="popup__guardar popup__margin">Guardar</button>
+    <button id="newProfile" class="popup__guardar popup__margin">Guardar</button>
+</form>
+</div>
+
+<div id="popupPlace" class="popup popup_opened">
+  <form class="popup__container">
+  <h2 class="popup__title popup__margin" >Nuevo Lugar</h2>
+  <button id="popupPlaceClose" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
+  <input type="text" placeholder="Titulo" id="Titulo" class="popup__nombre popup__margin">
+  <input placeholder="Enlace a la imagen" id="imgLink" class="popup__about popup__margin">
+  <button id="newCard" class="popup__guardar popup__margin">Guardar</button>
 </form>
 </div>
 

@@ -1,7 +1,7 @@
 //imports
 import { initialCards } from "./cards.js";
 //botton editar perfil
-const popcontainer = document.querySelector(".popup_opened");
+const popcontainer = document.querySelector("#popupProfile");
 
 const container= document.querySelector(".main");
 
@@ -38,9 +38,9 @@ popupname.placeholder = profilename.textContent;
 
 //Cambiar el contenido de la secion perfil con los inputs del pupup al guardar
 
-const popupsave = popcontainer.querySelector('.popup__guardar');
+const popupProfile = popcontainer.querySelector('#newProfile');
 
-popupsave.addEventListener('click', ()=>{
+popupProfile.addEventListener('click', ()=>{
   event.preventDefault();
   profilename.textContent = popupname.value || profilename.textContent;
   profilejob.textContent = popupjob.value || profilejob.textContent;
@@ -61,17 +61,61 @@ card.querySelector('.gallery__card-name').textContent = element.name;
 cardsContainer.append(card);
 });
 
-//borra las targetas con el botton de trash
-const targetCards = document.querySelectorAll(".gallery__card");
- targetCards.forEach(element => {
-  const trashbutton = element.querySelector('.gallery__trash')
-  trashbutton.addEventListener('click', ()=>{
-    const cardElement = event.target.closest(".gallery__card");
-    cardElement.remove();
 
-  })
+
+ // abre popup para agregar targetas
+
+ const popupPlace = document.querySelector('#popupPlace');
+
+ const addPlace = container.querySelector('.main__button_add')
+
+ addPlace.addEventListener("click" , ()=>{
+  popupPlace.classList.remove('popup_opened')
+ })
+
+ //cierra el popup de para agregar lugares
+
+ const closePlacepopup = popupPlace.querySelector('#popupPlaceClose')
+console.log(closepopup);
+
+closePlacepopup.addEventListener('click', ()=>{
+  event.preventDefault();
+  popupPlace.classList.add('popup_opened')
+});
+
+ //agrega targetas usando el boton add
+
+ const saveNewPlace = document.querySelector('#newCard');
+ const newTitle = popupPlace.querySelector('#Titulo')
+ const newLink = popupPlace.querySelector('#imgLink')
+
+ saveNewPlace.addEventListener('click', ()=>{
+  event.preventDefault();
+  const cardTemplate = document.querySelector('#card').content;
+  const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
+  card.querySelector('.gallery__card-image').src = newLink.value;
+  card.querySelector('.gallery__card-name').textContent = newTitle.value;
+  cardsContainer.append(card);
+  popupPlace.classList.add('popup_opened');
+
+
 
  });
+
+ //borra las targetas con el botton de trash
+
+cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("gallery__trash")) {
+    const cardElement = event.target.closest(".gallery__card");
+    cardElement.remove();
+  }
+});
+
+
+
+
+
+
 
 
 
