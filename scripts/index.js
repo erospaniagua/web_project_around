@@ -50,22 +50,31 @@ popupsave.addEventListener('click', ()=>{
 
 
 //toma un array y crea las targetas usando un template
-
+const cardsContainer = document.querySelector('.gallery');
 
 initialCards.forEach(element => {
-const cardsContainer = document.querySelector('.gallery');
+
 const cardTemplate = document.querySelector('#card').content;
 const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
-
 card.querySelector('.gallery__card-image').src = element.link;
 card.querySelector('.gallery__card-name').textContent = element.name;
-
 cardsContainer.append(card);
-console.log(card);
-
-
-
 });
+
+//borra las targetas con el botton de trash
+const targetCards = document.querySelectorAll(".gallery__card");
+ targetCards.forEach(element => {
+  const trashbutton = element.querySelector('.gallery__trash')
+  trashbutton.addEventListener('click', ()=>{
+    const cardElement = event.target.closest(".gallery__card");
+    cardElement.remove();
+
+  })
+
+ });
+
+
+
 
 
 
