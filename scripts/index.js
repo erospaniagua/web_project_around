@@ -102,17 +102,26 @@ closePlacepopup.addEventListener('click', ()=>{
 
  });
 
- //borra las targetas con el botton de trash
+//borra las targetas con el botton de trash
 
-cardsContainer.addEventListener("click", (event) => {
+ cardsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery__trash")) {
     const cardElement = event.target.closest(".gallery__card");
     cardElement.remove();
   }
 });
 
+//agrega interactividad al botton de like on click
+
+cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("gallery__card-like")) {
+  const toggleLike = event.target.closest(".gallery__card-text");
+   toggleLike.querySelector(".gallery__card-like").classList.toggle("gallery__card-liked");
+  }
+});
 
 
+//abre la imagen haciendo click en ella 
 
 
 
