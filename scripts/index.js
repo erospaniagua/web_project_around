@@ -121,8 +121,37 @@ cardsContainer.addEventListener("click", (event) => {
 });
 
 
-//abre la imagen haciendo click en ella 
+//abre la imagen haciendo click en ella
 
+const cardOpenedTemplate = document.querySelector("#openImg").content;
+const cardOpened =  cardOpenedTemplate.querySelector(".gallery__card__opened").cloneNode(true);
+
+cardsContainer.addEventListener("click", (event)=>{
+  const button = event.target.closest(".gallery__img__button");
+  const title = event.target.closest(".gallery__card")
+  if (button){
+    console.log("imagen abierta");
+    event.preventDefault();
+    cardOpened.querySelector(".gallery__img__opened").src = event.target.src;
+    cardOpened.querySelector(".gallery__tittle__opened").textContent = title.querySelector(".gallery__card-name").textContent;
+    container.append(cardOpened);
+
+  }
+});
+
+//cierra la imagen al dar click en el boton cerrar
+
+
+
+container.addEventListener("click", (event)=>{
+  const opendImg = container.querySelector(".gallery__card__opened");
+  const closeIcon = event.target.closest(".popup__Img__Close")
+ if(closeIcon && opendImg){
+  console.log("cerrando");
+  opendImg.remove();
+ }
+
+});
 
 
 

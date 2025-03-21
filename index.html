@@ -21,8 +21,8 @@
     <h2 class="popup__title popup__margin" >Editar Perfil</h2>
     <button  class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
     <input type="text" placeholder="Nombre" id="nombre" class="popup__nombre popup__margin">
-    <input placeholder="Acerca de mí" id="acercaDeMi" class="popup__about popup__margin">
-    <button id="newProfile" class="popup__guardar popup__margin">Guardar</button>
+    <input type="text" placeholder="Acerca de mí" id="acercaDeMi" class="popup__about popup__margin">
+    <button type="submit" id="newProfile" class="popup__guardar popup__margin">Guardar</button>
 </form>
 </div>
 
@@ -31,8 +31,8 @@
   <h2 class="popup__title popup__margin" >Nuevo Lugar</h2>
   <button id="popupPlaceClose" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
   <input type="text" placeholder="Titulo" id="Titulo" class="popup__nombre popup__margin">
-  <input placeholder="Enlace a la imagen" id="imgLink" class="popup__about popup__margin">
-  <button id="newCard" class="popup__guardar popup__margin">Guardar</button>
+  <input type="text" placeholder="Enlace a la imagen" id="imgLink" class="popup__about popup__margin">
+  <button type="submit" id="newCard" class="popup__guardar popup__margin">Guardar</button>
 </form>
 </div>
 
@@ -61,12 +61,21 @@
      <template id ='card'>
       <div class="gallery__card">
         <button class="main__button gallery__trash"> </button>
-        <img src="" alt="" class="gallery__card-image">
-
+        <button class="gallery__img__button">
+          <img src="" alt="" class="gallery__card-image">
+        </button>
         <div class="gallery__card-text">
           <p class="gallery__card-name"></p>
           <button class="main__button gallery__card-like gallery__card-liked"> </button>
-
+        </div>
+      </div>
+     </template>
+     <template id="openImg">
+      <div class="popup gallery__card__opened">
+        <div class="gallery__Opened__card__container">
+          <button id="closeOpenedImg" class="popup__close gallery__close__OpenedImg"><img class="popup__Img__Close" src="./images/Close Icon.png" alt="close icon"></button>
+        <img class="gallery__img__opened" src="" alt="">
+        <p class="gallery__tittle__opened"></p>
         </div>
       </div>
      </template>

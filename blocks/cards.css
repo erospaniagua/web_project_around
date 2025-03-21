@@ -33,8 +33,17 @@
   background-color: black
 }
 
+.gallery__img__button{
+  border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+
+}
+
 
 .gallery__card-image{
+  object-fit: cover;
   max-width: 282px;
   max-height: 290px;
     width: 100%;
@@ -79,6 +88,61 @@
   background: url(../images/Group.png) center no-repeat;
 }
 
+
+
+.gallery__card__opened{
+
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;               /* Use flex to center content */
+  align-items: center;         /* Center vertically */
+  justify-content: center;     /* Center horizontally */
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+.gallery__Opened__card__container{
+  position: relative;
+  background: #fff; /* or whatever background you need */
+  padding: 16px;
+  /* The key: let the content have normal document flow inside */
+  text-align: left;
+  background-color: transparent;
+  padding: 0px;
+
+}
+
+.gallery__close__OpenedImg{
+  position: absolute;
+    top: -40px;
+    right: -40px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    min-height: 40px;
+    min-height: 40px;
+}
+
+.gallery__close__OpenedImg:hover{
+  cursor: pointer;
+}
+.gallery__img__opened{
+  display: block;
+  max-width:816px;
+  max-height:540px ;
+  height: auto;
+
+
+}
+
+.gallery__tittle__opened{
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-family:"Inter" ;
+  font-size: 12px;
+
+}
+
 @media screen and (min-width: 320px) and (max-width: 584px){
   .gallery{
     max-width: 290px;
@@ -86,6 +150,22 @@
     gap: 20px;
     grid-template-columns: 1fr;
   }
+
+  .gallery__img__opened{
+    max-width:240px;
+    max-height:290px ;
+  }
+  .gallery__close__OpenedImg{
+    position: absolute;
+    right: -20px;
+    max-height:30px ;
+    max-width: 30px;
+  }
+   .popup__Img__Close{
+    max-height:30px ;
+    max-width: 30px;
+   }
+
 }
 
 @media screen and (min-width: 585px) and (max-width: 880px){
