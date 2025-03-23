@@ -1,5 +1,7 @@
+//imports
+import { initialCards } from "./cards.js";
 //botton editar perfil
-const popcontainer = document.querySelector(".popup_opened");
+const popcontainer = document.querySelector("#popupProfile");
 
 const container= document.querySelector(".main");
 
@@ -24,6 +26,7 @@ closepopup.addEventListener('click', ()=>{
 //poner el contenido del perfil en los campos del popup por defecto
 
 const profilename = container.querySelector('.main__paragraph_name');
+
 const profilejob = container.querySelector('.main__paragraph_job');
 
 const popupname = popcontainer.querySelector('.popup__nombre');
@@ -35,13 +38,125 @@ popupname.placeholder = profilename.textContent;
 
 //Cambiar el contenido de la secion perfil con los inputs del pupup al guardar
 
-const popupsave = popcontainer.querySelector('.popup__guardar');
+const popupProfile = popcontainer.querySelector('#newProfile');
 
-popupsave.addEventListener('click', ()=>{
+popupProfile.addEventListener('click', ()=>{
   event.preventDefault();
   profilename.textContent = popupname.value || profilename.textContent;
   profilejob.textContent = popupjob.value || profilejob.textContent;
   popcontainer.classList.add('popup_opened');
 
 });
+
+
+//toma un array y crea las targetas usando un template
+const cardsContainer = document.querySelector('.gallery');
+
+initialCards.forEach(element => {
+
+const cardTemplate = document.querySelector('#card').content;
+const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
+card.querySelector('.gallery__card-image').src = element.link;
+card.querySelector('.gallery__card-name').textContent = element.name;
+cardsContainer.append(card);
+});
+
+
+
+ // abre popup para agregar targetas
+
+ const popupPlace = document.querySelector('#popupPlace');
+
+ const addPlace = container.querySelector('.main__button_add')
+
+ addPlace.addEventListener("click" , ()=>{
+  popupPlace.classList.remove('popup_opened')
+ })
+
+ //cierra el popup de para agregar lugares
+
+ const closePlacepopup = popupPlace.querySelector('#popupPlaceClose')
+console.log(closepopup);
+
+closePlacepopup.addEventListener('click', ()=>{
+  event.preventDefault();
+  popupPlace.classList.add('popup_opened')
+});
+
+ //agrega targetas usando el boton add
+
+ const saveNewPlace = document.querySelector('#newCard');
+ const newTitle = popupPlace.querySelector('#Titulo')
+ const newLink = popupPlace.querySelector('#imgLink')
+
+ saveNewPlace.addEventListener('submit', (event)=>{
+  event.preventDefault();
+  const cardTemplate = document.querySelector('#card').content;
+  const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
+  card.querySelector('.gallery__card-image').src = newLink.value;
+  card.querySelector('.gallery__card-name').textContent = newTitle.value;
+  cardsContainer.append(card);
+  popupPlace.classList.add('popup_opened');
+
+
+
+ });
+
+//borra las targetas con el botton de trash
+
+ cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("gallery__trash")) {
+    const cardElement = event.target.closest(".gallery__card");
+    cardElement.remove();
+  }
+});
+
+//agrega interactividad al botton de like on click
+
+cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("gallery__card-like")) {
+  const toggleLike = event.target.closest(".gallery__card-text");
+   toggleLike.querySelector(".gallery__card-like").classList.toggle("gallery__card-liked");
+  }
+});
+
+
+//abre la imagen haciendo click en ella
+
+const cardOpenedTemplate = document.querySelector("#openImg").content;
+const cardOpened =  cardOpenedTemplate.querySelector(".gallery__card__opened").cloneNode(true);
+
+cardsContainer.addEventListener("click", (event)=>{
+  const button = event.target.closest(".gallery__img__button");
+  const title = event.target.closest(".gallery__card")
+  if (button){
+    console.log("imagen abierta");
+    event.preventDefault();
+    cardOpened.querySelector(".gallery__img__opened").src = event.target.src;
+    cardOpened.querySelector(".gallery__tittle__opened").textContent = title.querySelector(".gallery__card-name").textContent;
+    container.append(cardOpened);
+
+  }
+});
+
+//cierra la imagen al dar click en el boton cerrar
+
+
+
+container.addEventListener("click", (event)=>{
+  const opendImg = container.querySelector(".gallery__card__opened");
+  const closeIcon = event.target.closest(".popup__Img__Close")
+ if(closeIcon && opendImg){
+  console.log("cerrando");
+  opendImg.remove();
+ }
+
+});
+
+
+
+
+
+
+
 

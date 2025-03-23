@@ -65,6 +65,7 @@
 
 .main__button:hover {
   opacity: 0.5;
+  ;
 }
 
 .main__button_edit {
