@@ -91,21 +91,19 @@
 
 
 .gallery__card__opened{
-
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;               /* Use flex to center content */
-  align-items: center;         /* Center vertically */
-  justify-content: center;     /* Center horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 0, 0, 0.5);
 }
 
 
 .gallery__Opened__card__container{
   position: relative;
-  background: #fff; /* or whatever background you need */
+  background: #fff;
   padding: 16px;
-  /* The key: let the content have normal document flow inside */
   text-align: left;
   background-color: transparent;
   padding: 0px;

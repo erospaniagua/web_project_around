@@ -89,7 +89,7 @@ closePlacepopup.addEventListener('click', ()=>{
  const newTitle = popupPlace.querySelector('#Titulo')
  const newLink = popupPlace.querySelector('#imgLink')
 
- saveNewPlace.addEventListener('click', ()=>{
+ saveNewPlace.addEventListener('submit', (event)=>{
   event.preventDefault();
   const cardTemplate = document.querySelector('#card').content;
   const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
