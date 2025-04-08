@@ -1,12 +1,13 @@
 //imports
 import { initialCards } from "./cards.js";
+import  enableValidation  from "./validate.js";
 //botton editar perfil
 const popcontainer = document.querySelector("#popupProfile");
 
 const container= document.querySelector(".main");
 
 const editprofile = container.querySelector(".main__button_edit");
-console.log(editprofile);
+
 
 
 editprofile.addEventListener('click', ()=>{
@@ -16,7 +17,6 @@ editprofile.addEventListener('click', ()=>{
 //boton cerrar pupup
 
 const closepopup = popcontainer.querySelector('.popup__close')
-console.log(closepopup);
 
 closepopup.addEventListener('click', ()=>{
   event.preventDefault();
@@ -76,7 +76,7 @@ cardsContainer.append(card);
  //cierra el popup de para agregar lugares
 
  const closePlacepopup = popupPlace.querySelector('#popupPlaceClose')
-console.log(closepopup);
+
 
 closePlacepopup.addEventListener('click', ()=>{
   event.preventDefault();
@@ -153,6 +153,9 @@ container.addEventListener("click", (event)=>{
 
 });
 
+//habilitar validacion de formulario
+
+enableValidation();
 
 
 

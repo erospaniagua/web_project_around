@@ -17,24 +17,40 @@
 </head>
 <body>
   <div id="popupProfile" class="popup popup_opened">
-    <form class="popup__container">
-    <h2 class="popup__title popup__margin" >Editar Perfil</h2>
-    <button type="button" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
-    <input type="text" placeholder="Nombre" id="nombre" class="popup__nombre popup__margin">
-    <input type="text" placeholder="Acerca de mí" id="acercaDeMi" class="popup__about popup__margin">
-    <button type="submit" id="newProfile" class="popup__guardar popup__margin">Guardar</button>
-</form>
-</div>
+    <form class="popup__container popup__form">
+      <fieldset class="popup__fieldset" >
+        <h2 class="popup__title popup__margin" >Editar Perfil</h2>        
+         <button type="button" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
+         <label class="popup__field">
+          <input type="text" placeholder="Nombre" id="name" class="popup__nombre popup__margin popup__input" minlength="2" maxlength="40" required>
+          <span class="popup__input-error popup__input-error_name"></span>
+         </label>
+         <label class="popup__field">
+          <input type="text" placeholder="Acerca de mí" id="about" class="popup__about popup__margin popup__input" minlength="2" maxlength="200" required>
+          <span class="popup__input-error popup__input-error_about"></span>
+         </label>       
+         <button type="submit" id="newProfile" class="popup__guardar popup__margin">Guardar</button>
+      </fieldset>   
+    </form>
+  </div>
 
-<div id="popupPlace" class="popup popup_opened">
-  <form id="newCard" class="popup__container">
-  <h2 class="popup__title popup__margin" >Nuevo Lugar</h2>
-  <button type="button" id="popupPlaceClose" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
-  <input type="text" placeholder="Titulo" id="Titulo" class="popup__nombre popup__margin">
-  <input type="text" placeholder="Enlace a la imagen" id="imgLink" class="popup__about popup__margin">
-  <button type="submit"  class="popup__guardar popup__margin">Guardar</button>
-</form>
-</div>
+  <div id="popupPlace" class="popup popup_opened">    
+   <form id="newCard" class="popup__container popup__form">
+    <fieldset class="popup__fieldset" >
+      <h2 class="popup__title popup__margin" >Nuevo Lugar</h2>
+      <button type="button" id="popupPlaceClose" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>      
+       <label class="popup__field">
+        <input type="text" placeholder="Titulo" id="title" class="popup__nombre popup__margin popup__input" minlength="2" maxlength="30" required>
+        <span class="popup__input-error popup__input-error_title"></span>
+       </label>
+       <label class="popup__field">
+        <input type="url" placeholder="Enlace a la imagen" id="imgLink" class="popup__about popup__margin popup__input" required>
+        <span class="popup__input-error popup__input-error_imgLink"></span>
+       </label>
+      <button type="submit"  class="popup__guardar popup__margin">Guardar</button>
+    </fieldset>  
+   </form>
+  </div>
 
   <div class="page">
     <header class="header">
