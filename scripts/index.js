@@ -23,6 +23,19 @@ closepopup.addEventListener('click', ()=>{
   popcontainer.classList.add('popup_opened')
 });
 
+//cerar popups haciendo click fuera de del popup
+
+const popcontainerdivs = document.querySelectorAll(".popup");
+const closefromdiv = (popupdiv)=>{popupdiv.addEventListener('click', ()=>{
+  if (event.target === event.currentTarget){
+    event.preventDefault();
+    popupdiv.classList.add('popup_opened');
+  }
+  });
+  
+}
+popcontainerdivs.forEach(closefromdiv);
+
 //poner el contenido del perfil en los campos del popup por defecto
 
 const profilename = container.querySelector('.main__paragraph_name');
@@ -45,6 +58,8 @@ popupProfile.addEventListener('click', ()=>{
   profilename.textContent = popupname.value || profilename.textContent;
   profilejob.textContent = popupjob.value || profilejob.textContent;
   popcontainer.classList.add('popup_opened');
+  popupname.value = '';
+  popupjob.value = '';
 
 });
 
@@ -86,8 +101,9 @@ closePlacepopup.addEventListener('click', ()=>{
  //agrega targetas usando el boton add
 
  const saveNewPlace = document.querySelector('#newCard');
- const newTitle = popupPlace.querySelector('#Titulo')
- const newLink = popupPlace.querySelector('#imgLink')
+ const newTitle = popupPlace.querySelector('#title');
+ const newLink = popupPlace.querySelector('#imgLink');
+
 
  saveNewPlace.addEventListener('submit', (event)=>{
   event.preventDefault();
@@ -97,8 +113,10 @@ closePlacepopup.addEventListener('click', ()=>{
   card.querySelector('.gallery__card-name').textContent = newTitle.value;
   cardsContainer.append(card);
   popupPlace.classList.add('popup_opened');
-
-
+  newTitle.value = '';
+  newLink.value = '';
+  const popcontainerdivs = document.querySelectorAll(".popup");
+  popcontainerdivs.forEach(closefromdiv);
 
  });
 
@@ -130,14 +148,18 @@ cardsContainer.addEventListener("click", (event)=>{
   const button = event.target.closest(".gallery__img__button");
   const title = event.target.closest(".gallery__card")
   if (button){
-    console.log("imagen abierta");
     event.preventDefault();
     cardOpened.querySelector(".gallery__img__opened").src = event.target.src;
     cardOpened.querySelector(".gallery__tittle__opened").textContent = title.querySelector(".gallery__card-name").textContent;
     container.append(cardOpened);
-
+   
   }
 });
+
+// 
+const cardopendcontainer = (element)=>{element.addEventListener('click', ()=>{element.remove()})}
+cardopendcontainer(cardOpened)
+
 
 //cierra la imagen al dar click en el boton cerrar
 
@@ -147,7 +169,6 @@ container.addEventListener("click", (event)=>{
   const opendImg = container.querySelector(".gallery__card__opened");
   const closeIcon = event.target.closest(".popup__Img__Close")
  if(closeIcon && opendImg){
-  console.log("cerrando");
   opendImg.remove();
  }
 

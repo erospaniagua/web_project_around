@@ -12,10 +12,7 @@
  }
 
  .popup__container{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows:repeat(4, 1fr) ;
-  background-color: white;
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -25,10 +22,21 @@
   border-radius: 10px;
  }
 
+ .popup__fieldset{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows:repeat(4, 1fr) ;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+ }
+
  .popup__title{
   font-family: "Inter-Black";
   font-size: 24px;
-  grid-column: 1/2;
+  grid-column: 1/4;
+  grid-row: 1/2;
 
  }
 
@@ -43,22 +51,46 @@
   min-height: 40px;
  }
 
- .popup__nombre{
-  grid-column: 1/3;
+ .popup__field-title{
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/4;
   grid-row: 2/3;
+ }
+
+ .popup__field-about{
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/4;
+  grid-row: 3/4;
+ 
+ }
+
+ .popup__nombre{
+  min-height: 28px;
+  min-width: 358px;
+  border: none;
+  border-bottom: 1px solid #545454;
+
+ }
+
+ .popup__about{
+  grid-column: 1/4;
+  grid-row: 3/4;
   min-height: 28px;
   min-width: 358px;
   border: none;
   border-bottom: 1px solid #545454;
  }
 
- .popup__about{
-  grid-column: 1/3;
-  grid-row: 3/4;
-  min-height: 28px;
-  min-width: 358px;
-  border: none;
-  border-bottom: 1px solid #545454;
+ .popup__input-error{
+  color: red;
+  font-size: 12px;
+  font-family: "Inter";
+  width: 358px;
+  margin-left: auto;
+    margin-right: auto;
+    min-height: 30px;
  }
 
  .popup__guardar{
@@ -70,6 +102,7 @@
     background-color: black;
     border: none;
     border-radius: 2px;
+    margin: auto;
  }
 
  .popup__button_disabled{
@@ -78,7 +111,12 @@
  }
  .popup__margin{
   margin: auto;
+  margin-bottom: 0px;
  }
+
+ .popup__input_type-error {
+  border-bottom: 1px solid #f00;
+}
 
   @media screen and (min-width: 320px) and (max-width: 584px){
 
@@ -116,6 +154,12 @@
     border-radius: 2px;
 
   }
+  .popup__input-error{
+    color: red;
+    font-size: 12px;
+    font-family: "Inter";
+    width: 250px;
+   }
   }
 
 
