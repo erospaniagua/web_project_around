@@ -1,5 +1,5 @@
 //imports
-import { initialCards } from "./cards.js";
+import { initialCards, card } from "./cards.js";
 import  enableValidation  from "./validate.js";
 //botton editar perfil
 const popcontainer = document.querySelector("#popupProfile");
@@ -65,16 +65,14 @@ popupProfile.addEventListener('click', ()=>{
 
 
 //toma un array y crea las targetas usando un template
-const cardsContainer = document.querySelector('.gallery');
 
-initialCards.forEach(element => {
+initialCards.forEach(element =>{
+  const cardTemplate = '#card';
+  const cardRendering = new card(element.name, element.link, cardTemplate);
+  cardRendering.createCard()
 
-const cardTemplate = document.querySelector('#card').content;
-const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
-card.querySelector('.gallery__card-image').src = element.link;
-card.querySelector('.gallery__card-name').textContent = element.name;
-cardsContainer.append(card);
-});
+})
+//
 
 
 
@@ -103,15 +101,10 @@ closePlacepopup.addEventListener('click', ()=>{
  const saveNewPlace = document.querySelector('#newCard');
  const newTitle = popupPlace.querySelector('#title');
  const newLink = popupPlace.querySelector('#imgLink');
-
-
  saveNewPlace.addEventListener('submit', (event)=>{
   event.preventDefault();
-  const cardTemplate = document.querySelector('#card').content;
-  const card = cardTemplate.querySelector('.gallery__card').cloneNode(true);
-  card.querySelector('.gallery__card-image').src = newLink.value;
-  card.querySelector('.gallery__card-name').textContent = newTitle.value;
-  cardsContainer.append(card);
+  const cardAdded = new card(newTitle.value ,newLink.value, '#card')
+  cardAdded.createCard();
   popupPlace.classList.add('popup_opened');
   newTitle.value = '';
   newLink.value = '';
@@ -121,58 +114,35 @@ closePlacepopup.addEventListener('click', ()=>{
  });
 
 //borra las targetas con el botton de trash
-
+/*const cardsContainer = document.querySelector('.gallery');
  cardsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery__trash")) {
     const cardElement = event.target.closest(".gallery__card");
     cardElement.remove();
   }
-});
+});*/
 
 //agrega interactividad al botton de like on click
 
-cardsContainer.addEventListener("click", (event) => {
+/*cardsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery__card-like")) {
   const toggleLike = event.target.closest(".gallery__card-text");
    toggleLike.querySelector(".gallery__card-like").classList.toggle("gallery__card-liked");
   }
-});
+});*/
 
 
 //abre la imagen haciendo click en ella
 
-const cardOpenedTemplate = document.querySelector("#openImg").content;
-const cardOpened =  cardOpenedTemplate.querySelector(".gallery__card__opened").cloneNode(true);
 
-cardsContainer.addEventListener("click", (event)=>{
-  const button = event.target.closest(".gallery__img__button");
-  const title = event.target.closest(".gallery__card")
-  if (button){
-    event.preventDefault();
-    cardOpened.querySelector(".gallery__img__opened").src = event.target.src;
-    cardOpened.querySelector(".gallery__tittle__opened").textContent = title.querySelector(".gallery__card-name").textContent;
-    container.append(cardOpened);
-   
-  }
-});
-
-// 
-const cardopendcontainer = (element)=>{element.addEventListener('click', ()=>{element.remove()})}
-cardopendcontainer(cardOpened)
 
 
 //cierra la imagen al dar click en el boton cerrar
 
 
 
-container.addEventListener("click", (event)=>{
-  const opendImg = container.querySelector(".gallery__card__opened");
-  const closeIcon = event.target.closest(".popup__Img__Close")
- if(closeIcon && opendImg){
-  opendImg.remove();
- }
 
-});
+
 
 //habilitar validacion de formulario
 
