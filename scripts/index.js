@@ -1,6 +1,6 @@
 //imports
 import { initialCards, card } from "./cards.js";
-import  enableValidation  from "./validate.js";
+import  {config, FormValidator } from "./validate.js";
 //botton editar perfil
 const popcontainer = document.querySelector("#popupProfile");
 
@@ -144,9 +144,13 @@ closePlacepopup.addEventListener('click', ()=>{
 
 
 
-//habilitar validacion de formulario
+//habilitar validacion de formularios
+const formList = document.querySelectorAll(config.popForm);
+formList.forEach((form)=>{
+const enableValidation = new FormValidator
+enableValidation.enableValidation(config, form);
+})
 
-enableValidation();
 
 
 
