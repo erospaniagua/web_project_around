@@ -15,6 +15,7 @@ closepopup.addEventListener('click', ()=>{
 
 const ProfileEdit =(container) =>{
 const popcontainer = document.querySelector("#popupProfile");
+const saveButton = popcontainer.querySelector('.popup__guardar');
 const popupProfile = popcontainer.querySelector('#newProfile');
 const profilename = container.querySelector('.main__paragraph_name');
 const profilejob = container.querySelector('.main__paragraph_job');
@@ -27,6 +28,7 @@ popupProfile.addEventListener('click', ()=>{
   popcontainer.classList.add('popup_opened');
   popupname.value = '';
   popupjob.value = '';
+  saveButton.classList.add('popup__button_disabled');
 });
 
 }
@@ -57,6 +59,7 @@ const saveImg =()=>{
 const saveNewPlace = document.querySelector('#newCard');
 const newTitle = popupPlace.querySelector('#title');
 const newLink = popupPlace.querySelector('#imgLink');
+const saveButton = saveNewPlace.querySelector('.popup__guardar');
 saveNewPlace.addEventListener('submit', (event)=>{
  event.preventDefault();
  const cardAdded = new card(newTitle.value ,newLink.value, '#card')
@@ -65,7 +68,9 @@ saveNewPlace.addEventListener('submit', (event)=>{
  newTitle.value = '';
  newLink.value = '';
  const popcontainerdiv = document.querySelector(".popup");
+
  popcontainerdiv.classList.add('popup_opened');
+ saveButton.classList.add('popup__button_disabled');
 
 
 });
