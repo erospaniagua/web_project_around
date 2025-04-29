@@ -27,5 +27,90 @@ const initialCards = [
   }
 ];
 
+class card {
 
-export { initialCards };
+  constructor(text , link , selector){
+    this._text = text ;
+    this._link = link ;
+    this._selector = selector;
+    this._cardsContainer = this._getContainer(); ;
+  }
+  _getContainer(){
+      return document.querySelector('.gallery');
+  }
+
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._selector)
+      .content
+      .querySelector('.gallery__card')
+      .cloneNode(true);
+      return cardElement;
+  }
+
+  _addLikeListener(event){   
+       const toggleLike = event.target.closest(".gallery__card-text");
+       toggleLike.querySelector(".gallery__card-like").classList.toggle("gallery__card-liked"); 
+    };
+
+  
+  _addTrashListener(event){
+    const cardElement = event.target.closest(".gallery__card");
+    cardElement.remove();
+   }
+    
+  
+
+  _addOpenImgListener(event){
+    const cardOpenedTemplate = document.querySelector("#openImg").content;
+    const cardOpened =  cardOpenedTemplate.querySelector(".gallery__card__opened").cloneNode(true); 
+      const container= document.querySelector(".main");
+      const button = event.target.closest(".gallery__img__button");
+      const title = event.target.closest(".gallery__card")
+      if (button){
+        event.preventDefault();
+        cardOpened.querySelector(".gallery__img__opened").src = event.target.src;
+        cardOpened.querySelector(".gallery__tittle__opened").textContent = title.querySelector(".gallery__card-name").textContent;
+        cardOpened.addEventListener("click",(event)=>{
+          const opendImg = event.target.classList.contains("gallery__card__opened");
+          const closeIcon = event.target.closest(".popup__Img__Close")
+          if(closeIcon && opendImg){
+          opendImg.remove();
+           }
+        })
+        container.append(cardOpened);     
+      }   
+      const cardopendcontainer = (element)=>{element.addEventListener('click', ()=>{element.remove()})}
+      cardopendcontainer(cardOpened)
+  }
+
+  _setListeners(){
+    this._element.addEventListener("click", (event) => {
+      if (event.target.classList.contains("gallery__card-like")) {
+        this._addLikeListener(event);
+      }
+
+      if (event.target.classList.contains("gallery__trash")) {
+        this._addTrashListener(event);
+      }
+
+      if (event.target.classList.contains("gallery__card-image")) {
+        this._addOpenImgListener(event);
+      }
+    });
+  }
+
+  createCard(){
+    
+    this._element = this._getTemplate();
+    this._element.querySelector('.gallery__card-image').src = this._link
+    this._element.querySelector('.gallery__card-name').textContent = this._text
+    this._setListeners();
+    this._cardsContainer.append(this._element);
+    
+    
+  }
+}
+ 
+
+export { initialCards, card };
