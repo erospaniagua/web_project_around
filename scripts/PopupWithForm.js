@@ -18,7 +18,6 @@ export default class PopupWithForm extends Popup{
     }
     setEventListeners(){
         super.setEventListeners();
-        // Remove any existing submit listeners before adding a new one
         this._form.removeEventListener("submit", this._handleSubmit);
         this._form.addEventListener("submit", this._handleSubmit);
     }
