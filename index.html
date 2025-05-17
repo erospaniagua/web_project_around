@@ -16,6 +16,21 @@
     <title>Al rededor de LATAM</title>
 </head>
 <body>
+  
+  <div id="popupImgProfile" class="popup popup_opened">
+    <form  id="newProfileImg" class="popup__form popup_avatar">
+      <fieldset class="popup__fieldset popup__fieldset-avatar" >
+        <h2 class="popup__title-avatar popup__margin" >Editar Foto de Perfil</h2>        
+         <button type="button" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
+         <label class="popup__field-avatar">
+          <input type="url" name="link" placeholder="Link:" id="profileLink" class="popup__nombre popup__margin popup__input" required>
+          <span class="popup__input-error popup__input-error_profileLink"></span>
+         </label>       
+         <button type="submit" id="newImgProfile" class="popup__guardar popup__guardar-avatar">Guardar</button>
+      </fieldset>   
+    </form>
+  </div>
+  
   <div id="popupProfile" class="popup popup_opened">
     <form class="popup__container popup__form">
       <fieldset class="popup__fieldset" >
@@ -53,6 +68,13 @@
      </div>
    </form>
   </div>
+  <div id="popupEraseCard" class="popup popup_opened">
+     <div class="popup_dltImg">
+      <button type="button" id="popupPlaceClose" class="popup__close"><img src="./images/Close Icon.png" alt="close icon"></button>
+      <p class="popup__title popup__margin">Estas Seguro?</p>
+      <button type="submit" id="delImg" class="popup__guardar">si</button>
+    </div>
+  </div>
 
   <div class="page">
     <header class="header">
@@ -61,11 +83,14 @@
     <main class="main">
       <div class="main__profile">
         <div class="main__content-image">
-          <img src="./images/image.jpg" alt="profile picture" class="main__profile-image">
+          <button class="main__profileimg-button">
+          <img src="" alt="profile picture" class="main__profile-image">
+          <img src="./images/pencil-svgrepo-com.svg" alt="Edit icon" class="main__pencil-icon">
+        </button>
         </div>
         <div class="main__content-paragraph">
-          <h2 class="main__paragraph main__paragraph_name">Eros Paniagua</h2>
-          <p class="main__paragraph main__paragraph_job">developer</p>
+          <h2 class="main__paragraph main__paragraph_name"></h2>
+          <p class="main__paragraph main__paragraph_job"></p>
           <button class="main__button main__button_edit ">&#x1F58C;</button>
         </div>
         <button type="button" class="main__button main__button_add">
