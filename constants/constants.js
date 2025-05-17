@@ -24,16 +24,24 @@ const initialCards = [
       link: "https://images.unsplash.com/photo-1534943441045-1009d7cb0bb9?q=80&w=2608&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ];
-
+  const profileImgElment = document.querySelector("#popupImgProfile")
   const profilePopupElement = document.querySelector("#popupProfile");
   const cardPopupElement = document.querySelector("#popupPlace");
+  const trashPopElement = document.querySelector("#popupEraseCard");
+  const profileImgFormSelector = "#newProfileImg"
   const profileFormSelector = ".popup__form";
   const cardFormSelector = "#newCard";
+  const submitProfileButton = document.querySelector('#newProfile');
+  const submitCardButton = document.querySelector('#newImg')
+  const submitAvatarButton = document.querySelector('#newImgProfile')
 
+  const profileImg = document.querySelector(".main__profile-image")
   const profileName = document.querySelector(".main__paragraph_name");
   const profileJob = document.querySelector(".main__paragraph_job");
   const editProfileBtn = document.querySelector(".main__button_edit");
   const editCardBtn = document.querySelector(".main__button_add");
+  const editProfileImg = document.querySelector(".main__profileimg-button")
+ 
 
   export { initialCards,
     profileJob,
@@ -43,5 +51,13 @@ const initialCards = [
     editProfileBtn,
     cardPopupElement,
     editCardBtn,
-    cardFormSelector
+    cardFormSelector,
+    trashPopElement,
+    profileImgFormSelector,
+    profileImgElment,
+    profileImg,
+    editProfileImg,
+    submitProfileButton,
+    submitCardButton,
+    submitAvatarButton
    };
